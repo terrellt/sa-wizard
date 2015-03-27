@@ -9,3 +9,8 @@ Template: server/port
 Type: string
 Default: 6000
 Description: Please enter the port you'd like to run the server on.
+
+Template: server/solr_url
+Type: string
+Default: http://127.0.0.1:8983/solr
+Description: Please enter your solr URL

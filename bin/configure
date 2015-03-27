@@ -26,6 +26,20 @@ select_port() {
 
 	wiz_put "server/port"
 	if wiz_ask ; then
+		STATE="select_solr"
+	else
+		STATE="start"
+	fi
+}
+
+select_solr() {
+	if ! wiz_get "server/solr_url" &>/dev/null ; then
+		wiz_set "server/solr_url" "http://127.0.0.1:8983/solr"
+		wiz_unseen "server/solr_url"
+	fi
+
+	wiz_put "server/solr_url"
+	if wiz_ask ; then
 		STATE="done"
 	else
 		STATE="start"
@@ -39,6 +53,9 @@ state_machine() {
 			;;
 		"select_port")
 			select_port
+			;;
+		"select_solr")
+			select_solr
 			;;
 		"done")
 			echo "DONE"
