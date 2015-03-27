@@ -10,4 +10,8 @@ sudo scholars-archive run rake db:create
 sudo scholars-archive run rake db:migrate
 sudo scholars-archive run rake jetty:clean
 sudo scholars-archive run rake sufia:jetty:config
+
+# Scale
+
+sudo scholars-archive scale web=1 jetty=1 worker=1
 exit 0
