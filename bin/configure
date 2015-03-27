@@ -1,3 +1,55 @@
 #!/bin/bash
+. "${INSTALLER_DIR}/wizard"
 
+input_start() {
+	wiz_put "server/autoinstall"
+	if wiz_ask ; then
+		RET=$(wiz_get "server/autoinstall")
+		if [ "$RET" = "install" ] ; then
+			STATE="select_port"
+		else
+			STATE="done"
+		fi
+	else
+		STATE="done"
+		echo "Scholars Archive configuration canceled."
+		exit 1
+	fi
+
+}
+
+select_port() {
+	if ! wiz_get "server/port" &>/dev/null ; then
+		wiz_set "server/port" "6000"
+		wiz_unseen "server/port"
+	fi
+
+	wiz_put "server/port"
+	if wiz_ask ; then
+		STATE="done"
+	else
+		STATE="start"
+	fi
+}
+
+state_machine() {
+	case "$1" in
+		"start")
+			input_start
+			;;
+		"select_port")
+			select_port
+			;;
+		"done")
+			echo "DONE"
+			break
+			;;
+		*)
+			echo "invalid state ${STATE}"
+			break
+			;;
+	esac
+}
+
+wizard "start"
 exit 0

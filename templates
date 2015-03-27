@@ -1,0 +1,11 @@
+Template: server/autoinstall
+Type: select
+Choices: skip, install
+Translations: Skip, Install Scholars Archive
+Default: install
+Description: Do you want to run the configuration for Scholars Archive?
+
+Template: server/port
+Type: string
+Default: 6000
+Description: Please enter the port you'd like to run the server on.

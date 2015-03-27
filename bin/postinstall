@@ -5,6 +5,7 @@ sudo scholars-archive config:set SCHOLARSARCHIVE_SOLR_URL="http://127.0.0.1:8983
 sudo scholars-archive config:set SCHOLARSARCHIVE_FEDORA_URL="http://127.0.0.1:8983/fedora/rest"
 sudo scholars-archive config:set SCHOLARSARCHIVE_FEDORA_USERNAME="fedoraAdmin"
 sudo scholars-archive config:set SCHOLARSARCHIVE_FEDORA_PASSWORD="fedoraAdmin"
+sudo scholars-archive config:set PORT="$(wiz_get server/port)"
 
 sudo scholars-archive run rake db:create
 sudo scholars-archive run rake db:migrate
