@@ -2,8 +2,7 @@
 . "${INSTALLER_DIR}/wizard"
 sudo scholars-archive config:set SCHOLARSARCHIVE_DEVISE_KEY="4124124"
 sudo scholars-archive config:set SCHOLARSARCHIVE_SECRET="afasdf"
-sudo scholars-archive config:set SCHOLARSARCHIVE_SOLR_URL="$(wiz_get
-server/solr_url)"
+sudo scholars-archive config:set SCHOLARSARCHIVE_SOLR_URL="$(wiz_get server/solr_url)"
 sudo scholars-archive config:set SCHOLARSARCHIVE_FEDORA_URL="http://127.0.0.1:8983/fedora/rest"
 sudo scholars-archive config:set SCHOLARSARCHIVE_FEDORA_USERNAME="fedoraAdmin"
 sudo scholars-archive config:set SCHOLARSARCHIVE_FEDORA_PASSWORD="fedoraAdmin"
