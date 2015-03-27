@@ -1,4 +1,5 @@
 #!/bin/bash
+. "${INSTALLER_DIR}/wizard"
 sudo scholars-archive config:set SCHOLARSARCHIVE_DEVISE_KEY="4124124"
 sudo scholars-archive config:set SCHOLARSARCHIVE_SECRET="afasdf"
 sudo scholars-archive config:set SCHOLARSARCHIVE_SOLR_URL="http://127.0.0.1:8983/solr"
